@@ -98,15 +98,6 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none}
   text-shadow:0 1px 3px rgba(0,0,0,.3);
 }
 .nav-cta:hover{box-shadow:0 0 44px rgba(139,92,246,.75), 0 0 0 1px rgba(255,255,255,.2);transform:translateY(-2px) scale(1.03)}
-.lang-switch,.mob-lang-switch{
-  display:inline-flex;align-items:center;justify-content:center;
-  font-size:12px;font-weight:700;letter-spacing:.02em;
-  color:var(--purple3);border:1px solid var(--border2);
-  border-radius:999px;padding:8px 12px;flex-shrink:0;
-  transition:all .25s;background:rgba(139,92,246,.08);
-}
-.lang-switch:hover,.mob-lang-switch:hover{color:#fff;background:rgba(139,92,246,.22);border-color:rgba(139,92,246,.65)}
-.mob-lang-switch{display:none;margin:8px 12px 0;padding:11px 14px}
 .nav-ham{display:none;flex-direction:column;gap:5px;padding:6px;margin-left:8px;flex-shrink:0}
 .nav-ham span{display:block;width:20px;height:1.5px;background:var(--text2);border-radius:2px;transition:.3s}
 #mob-menu{
@@ -120,10 +111,6 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none}
 #mob-menu.open{display:flex}
 #mob-menu a{padding:12px 20px;font-size:15px;font-weight:500;color:var(--text2);border-radius:12px;transition:all .2s}
 #mob-menu a:hover{color:var(--text);background:rgba(255,255,255,.05)}
-
-html[dir="rtl"] body{text-align:right}
-html[dir="rtl"] .nav-pill{direction:rtl}
-html[dir="rtl"] #term-in{direction:ltr;text-align:left}
 
 /* ═══════════════════════════════════════════════
    SHARED SECTION STYLES
@@ -780,8 +767,6 @@ section{position:relative;z-index:1}
   .nav-pill{justify-content:space-between;padding:8px 14px}
   .nav-pill a:not(.nav-cta){display:none}
   .nav-cta{display:none}
-  .lang-switch{display:none}
-  .mob-lang-switch{display:inline-flex}
   .nav-ham{display:flex}
 
   #hero{padding:100px var(--pad) 80px}

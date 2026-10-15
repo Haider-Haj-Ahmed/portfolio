@@ -1,6 +1,12 @@
-export default function Ticker({ items }) {
-  const all = [...items, ...items]
+const ITEMS = [
+  'Laravel REST APIs','Sanctum Auth','Eloquent ORM','MySQL Schema Design',
+  'Livewire Interfaces','PHP 8+ Features','SOLID Principles','Clean Architecture',
+  'Queued Jobs & Events','JSON:API Conventions','Domain Modeling','Service Layer Pattern',
+]
 
+export default function Ticker() {
+  // doubled for seamless loop
+  const all = [...ITEMS, ...ITEMS]
   return (
     <div id="ticker" aria-hidden="true">
       <div className="ticker-track">

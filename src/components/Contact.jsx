@@ -1,6 +1,7 @@
 const CHANNELS = [
   {
     href: 'mailto:haideralhajahmed2@gmail.com',
+    label: 'EMAIL',
     value: 'haideralhajahmed2@gmail.com',
     icon: (
       <svg viewBox="0 0 24 24">
@@ -11,6 +12,7 @@ const CHANNELS = [
   },
   {
     href: 'https://github.com/Haider-Haj-Ahmed',
+    label: 'GITHUB',
     value: 'Haider-Haj-Ahmed',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
@@ -20,6 +22,7 @@ const CHANNELS = [
   },
   {
     href: 'https://t.me/haider_cz',
+    label: 'TELEGRAM',
     value: '@haider_cz',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
@@ -29,6 +32,7 @@ const CHANNELS = [
   },
   {
     href: 'https://wa.me/963932938041',
+    label: 'WHATSAPP',
     value: '+963 932 938 041',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
@@ -38,6 +42,7 @@ const CHANNELS = [
   },
   {
     href: 'https://instagram.com/haider_cz',
+    label: 'INSTAGRAM',
     value: '@haider_cz',
     icon: (
       <svg viewBox="0 0 24 24">
@@ -49,28 +54,35 @@ const CHANNELS = [
   },
 ]
 
-export default function Contact({ content }) {
+const SPEC_TAGS = ['Laravel APIs','Backend Architecture','PHP Systems','MySQL Design','Livewire']
+
+export default function Contact() {
   return (
     <section id="contact">
       <div className="container">
         <div className="contact-wrap reveal">
           <div className="contact-glow" aria-hidden="true" />
           <div className="contact-inner">
+
+            {/* ── Left ── */}
             <div className="contact-left">
-              <div className="section-eyebrow">{content.eyebrow}</div>
+              <div className="section-eyebrow">08 / CONTACT</div>
               <p style={{ fontFamily: 'var(--mono)', fontSize: '11px', color: 'var(--text3)', letterSpacing: '.1em', marginTop: '12px', marginBottom: '6px' }}>
                 HAIDER AL-HAJ AHMED
               </p>
               <h2 className="contact-heading">
-                {content.heading}<br /><span className="gradient">{content.headingGradient}</span>
+                Let's build<br /><span className="gradient">something real.</span>
               </h2>
-              <p className="contact-sub">{content.sub}</p>
+              <p className="contact-sub">
+                Open to freelance backend projects, API consulting, and technical collaboration.
+                If you have a system that needs to scale cleanly, let's talk.
+              </p>
               <div className="contact-channels">
-                {CHANNELS.map((ch, i) => (
-                  <a key={ch.value} href={ch.href} target={ch.href.startsWith('mailto') ? undefined : '_blank'} rel="noreferrer" className="cch">
+                {CHANNELS.map(ch => (
+                  <a key={ch.label} href={ch.href} target={ch.href.startsWith('mailto') ? undefined : '_blank'} rel="noreferrer" className="cch">
                     <div className="cch-icon">{ch.icon}</div>
                     <div>
-                      <div className="cch-lbl">{content.channels[i]}</div>
+                      <div className="cch-lbl">{ch.label}</div>
                       <div className="cch-val">{ch.value}</div>
                     </div>
                     <span className="cch-arrow">→</span>
@@ -79,37 +91,38 @@ export default function Contact({ content }) {
               </div>
             </div>
 
+            {/* ── Right panel ── */}
             <div className="contact-right">
               <div className="cpanel-block">
-                <div className="cp-lbl">{content.status}</div>
+                <div className="cp-lbl">CURRENT STATUS</div>
                 <div className="avail-badge">
-                  <span className="avail-dot" style={{ width: '8px', height: '8px' }} /> {content.available}
+                  <span className="avail-dot" style={{ width: '8px', height: '8px' }} /> Available for work
                 </div>
               </div>
               <hr className="cpanel-divider" />
               <div className="cpanel-block">
-                <div className="cp-lbl">{content.locationLabel}</div>
-                <div className="cp-val">{content.location}</div>
+                <div className="cp-lbl">LOCATION</div>
+                <div className="cp-val">Homs, Syria / GMT+3</div>
               </div>
               <hr className="cpanel-divider" />
               <div className="cpanel-block">
-                <div className="cp-lbl">{content.specialization}</div>
+                <div className="cp-lbl">SPECIALIZATION</div>
                 <div className="cp-tags">
-                  {content.tags.map((t, i) => (
+                  {SPEC_TAGS.map((t, i) => (
                     <span key={t} className={`stag ${i < 2 ? 'accent' : ''}`}>{t}</span>
                   ))}
                 </div>
               </div>
               <hr className="cpanel-divider" />
               <div className="cpanel-block">
-                <div className="cp-lbl">{content.responseTime}</div>
-                <div className="cp-val" style={{ fontSize: '14px' }}>{content.responseValue}</div>
+                <div className="cp-lbl">RESPONSE TIME</div>
+                <div className="cp-val" style={{ fontSize: '14px' }}>Usually within 24 hours</div>
               </div>
               <hr className="cpanel-divider" />
               <div className="cpanel-block">
-                <div className="cp-lbl">{content.idealProjects}</div>
+                <div className="cp-lbl">IDEAL PROJECTS</div>
                 <div style={{ fontSize: '13px', color: 'var(--text2)', lineHeight: '1.75', marginTop: '6px' }}>
-                  {content.idealProjectsDesc}
+                  REST API builds, Laravel system architecture, domain modeling, backend consulting — anything where clean code and scalable design are the priority.
                 </div>
               </div>
             </div>

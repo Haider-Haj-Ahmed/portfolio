@@ -1,11 +1,11 @@
 const STATS = [
-  { count: 4, suffix: '+' },
-  { count: 60, suffix: '+' },
-  { count: 5, suffix: '' },
-  { count: 100, suffix: '%' },
+  { count: 4,   suffix: '+', label: 'Production systems shipped as sole architect' },
+  { count: 60,  suffix: '+', label: 'REST API endpoints following JSON:API conventions' },
+  { count: 5,   suffix: '',  label: 'Laravel major versions worked across (8 → 13)' },
+  { count: 100, suffix: '%', label: 'Projects with scoped auth and versioned endpoints' },
 ]
 
-export default function Proof({ labels }) {
+export default function Proof() {
   return (
     <section id="proof">
       <div className="container">
@@ -15,7 +15,7 @@ export default function Proof({ labels }) {
               <div className="proof-num">
                 <span data-count={s.count}>0</span>{s.suffix}
               </div>
-              <div className="proof-label">{labels[i]}</div>
+              <div className="proof-label">{s.label}</div>
             </div>
           ))}
         </div>
