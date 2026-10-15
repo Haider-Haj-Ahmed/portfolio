@@ -4,39 +4,32 @@ const GH_ICON = (
   </svg>
 )
 
-const TIMELINE = [
-  { year: 'PRESENT', title: 'Freelance Backend Developer', desc: 'Building production-ready Laravel APIs for clients across healthcare, job markets, social platforms and tourism. Sole architect on multiple systems.', active: true },
-  { year: 'ONGOING', title: 'Software Engineering @ Homs University', desc: 'Deep-diving into CS fundamentals, algorithms, and systems design — applying theory directly to production problems.', active: true },
-  { year: 'EARLIER', title: 'Freelance Translator', desc: 'Precision and structured communication as a professional career. The same discipline now drives every API design decision.', active: false },
-  { year: 'ORIGIN', title: 'Fell in love with building things', desc: 'The moment I realized elegant code and elegant prose share the same underlying logic.', active: false },
-]
-
-export default function About() {
+export default function About({ content }) {
   return (
     <section id="about">
       <div className="container">
         <div className="about-grid">
           <div className="reveal">
-            <div className="section-eyebrow">01 / ABOUT</div>
+            <div className="section-eyebrow">{content.eyebrow}</div>
             <h2 className="section-heading" style={{ marginBottom: '28px' }}>
-              Backend systems<br />built for the <span className="gradient">long run.</span>
+              {content.heading}<br />{content.headingTail} <span className="gradient">{content.headingGradient}</span>
             </h2>
-            <p className="about-body">I'm a Software Engineering student at <strong>Homs University</strong> and a freelance backend developer. My work sits at the intersection of precision engineering and clean design: APIs that are a pleasure to consume, schemas that don't break under load, and code that a future developer can actually read.</p>
-            <p className="about-body">Before code, I was a <strong>freelance translator</strong> — a career defined by precision and structured thinking. An API contract is a translation problem: turning business intent into machine-readable form without losing meaning. Those instincts now drive every system I architect.</p>
-            <p className="about-body">Whether it's a solo architecture decision or a collaborative domain model, my goal stays constant: <strong>fewer bugs, more clarity, better outcomes.</strong></p>
+            <p className="about-body">{content.body[0]}</p>
+            <p className="about-body">{content.body[1]}</p>
+            <p className="about-body"><strong>{content.body[2]}</strong></p>
             <div className="about-links">
-              <a href="https://github.com/Haider-Haj-Ahmed" target="_blank" rel="noreferrer" className="about-link">{GH_ICON} GitHub</a>
-              <a href="https://t.me/haider_cz" target="_blank" rel="noreferrer" className="about-link">Telegram</a>
-              <a href="https://instagram.com/haider_cz" target="_blank" rel="noreferrer" className="about-link">Instagram</a>
-              <a href="mailto:haideralhajahmed2@gmail.com" className="about-link">Email</a>
+              <a href="https://github.com/Haider-Haj-Ahmed" target="_blank" rel="noreferrer" className="about-link">{GH_ICON} {content.links[0]}</a>
+              <a href="https://t.me/haider_cz" target="_blank" rel="noreferrer" className="about-link">{content.links[1]}</a>
+              <a href="https://instagram.com/haider_cz" target="_blank" rel="noreferrer" className="about-link">{content.links[2]}</a>
+              <a href="mailto:haideralhajahmed2@gmail.com" className="about-link">{content.links[3]}</a>
             </div>
           </div>
 
           <div className="reveal d2">
             <div className="glass" style={{ padding: '32px' }}>
-              <div className="section-eyebrow" style={{ marginBottom: '20px' }}>JOURNEY</div>
+              <div className="section-eyebrow" style={{ marginBottom: '20px' }}>{content.journey}</div>
               <div className="timeline">
-                {TIMELINE.map((item, i) => (
+                {content.timeline.map((item, i) => (
                   <div className="tl-item" key={i}>
                     <div className={`tl-dot${item.active ? '' : ' dim'}`} />
                     <div className="tl-year">{item.year}</div>

@@ -1,4 +1,4 @@
-export default function Hero() {
+export default function Hero({ content }) {
   return (
     <section id="hero">
       <div className="hero-glow" aria-hidden="true" />
@@ -6,54 +6,49 @@ export default function Hero() {
       <div className="hero-ring hero-ring2" aria-hidden="true" />
 
       <div className="hero-inner">
-        {/* ── Left ── */}
         <div className="hero-left">
           <div className="hero-avail">
             <span className="avail-dot" />
-            AVAILABLE FOR FREELANCE — HOMS, SYRIA / GMT+3
+            {content.availability}
           </div>
 
           <h1 className="hero-title">
             <span className="line-grad" style={{ fontSize: 'clamp(26px,3.5vw,48px)', letterSpacing: '-.02em', marginBottom: '2px' }}>
               Haider Al-Haj Ahmed
             </span>
-            <span className="line-white">Backend Engineer</span>
-            <span className="line-white">building systems</span>
-            <span className="line-white">that <span className="gradient">scale.</span></span>
+            <span className="line-white">{content.titleLines[0]}</span>
+            <span className="line-white">{content.titleLines[1]}</span>
+            <span className="line-white">{content.titleTail} <span className="gradient">{content.titleGradient}</span></span>
           </h1>
 
-          <p className="hero-sub">
-            Laravel specialist and backend architect. I build clean REST APIs, robust data layers,
-            and production-grade PHP systems. Every endpoint is a contract — I write contracts that don't break.
-          </p>
+          <p className="hero-sub">{content.sub}</p>
 
           <div className="hero-btns">
             <a href="#projects" className="btn-purple">
-              View Projects
+              {content.viewProjects}
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
             </a>
-            <a href="mailto:haideralhajahmed2@gmail.com" className="btn-ghost">Get in touch</a>
+            <a href="mailto:haideralhajahmed2@gmail.com" className="btn-ghost">{content.getInTouch}</a>
           </div>
 
           <div className="hero-stats">
             <div className="hero-stat">
               <div className="hero-stat-num"><span data-count="4">0</span>+</div>
-              <div className="hero-stat-label">Production projects</div>
+              <div className="hero-stat-label">{content.stats[0]}</div>
             </div>
             <div className="hero-stat">
               <div className="hero-stat-num"><span data-count="60">0</span>+</div>
-              <div className="hero-stat-label">API endpoints shipped</div>
+              <div className="hero-stat-label">{content.stats[1]}</div>
             </div>
             <div className="hero-stat">
               <div className="hero-stat-num"><span data-count="5">0</span></div>
-              <div className="hero-stat-label">Laravel versions (8→13)</div>
+              <div className="hero-stat-label">{content.stats[2]}</div>
             </div>
           </div>
         </div>
 
-        {/* ── Right: code card ── */}
         <div className="hero-right">
           <div className="code-card-wrap">
             <div className="float-badge fb-1">⚡ Laravel 13</div>
@@ -66,7 +61,7 @@ export default function Hero() {
                 <span className="cc-filename">AppointmentController.php</span>
               </div>
               <div className="code-body">
-                <span className="cm">{'// Conflict-safe booking with pessimistic lock'}</span>{'\n'}
+                <span className="cm">{content.codeComment}</span>{'\n'}
                 <span className="ck">public function</span>{' '}<span className="cf">store</span>(StoreRequest <span className="cv">$request</span>){'\n'}
                 {'{'}{'\n'}
                 {'    '}<span className="cv">$this</span>-&gt;<span className="cf">authorize</span>(<span className="cs">'create'</span>, Appointment::<span className="ck">class</span>);{'\n\n'}
@@ -83,7 +78,7 @@ export default function Hero() {
                 {'}'}
               </div>
               <div className="code-footer">
-                <span className="badge-green">Tests passing · 100% coverage</span>
+                <span className="badge-green">{content.testsPassing}</span>
                 <span className="badge-purple">Laravel 13</span>
               </div>
             </div>
@@ -93,7 +88,7 @@ export default function Hero() {
 
       <div className="scroll-line" aria-hidden="true">
         <div className="scroll-line-bar" />
-        <span>Scroll</span>
+        <span>{content.scroll}</span>
       </div>
     </section>
   )
